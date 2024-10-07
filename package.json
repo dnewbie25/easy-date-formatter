@@ -1,0 +1,27 @@
+{
+  "name": "easy-date-formatter",
+  "version": "1.0.0",
+  "description": "An npm package aimed to help formatting dates into a more human-friendly format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnewbie25/easy-date-formatter.git"
+  },
+  "keywords": [
+    "date",
+    "datetime",
+    "format",
+    "UTC",
+    "GMT",
+    "timezone"
+  ],
+  "author": "Daniel Montoya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dnewbie25/easy-date-formatter/issues"
+  },
+  "homepage": "https://github.com/dnewbie25/easy-date-formatter#readme"
+}
