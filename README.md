@@ -37,7 +37,7 @@ Friday, October 6th, 2023
 
 # Accepted Input
 
-For all the functions, the accepted inputs will be in the following formats, following the American standard of `Year Month Day`:
+For all the functions, the accepted inputs will be in the following formats, following the American standard of `Year Month Day` or one of the following:
 - `Timestamps`, these are the number of milliseconds passed since January 1, 1970. For example: `14182940000`
 - `ISO 8601`, the standard way of representing dates. They are strings like `YYYY-MM-DDTHH:mm:ss.sssZ`, for example `2023-10-06T14:30:00.000Z`
 - `Short date` format. Currently supporting only US date format `MM/DD/YYYY` or `MM-DD-YYYY`

@@ -57,7 +57,15 @@ function splitDate(date) {
   return arr
 }
 
-function shortDate(date) {
+function shortDate(date){
+  const newDate = splitDate(date)
+  const day = newDate[1]
+  const month = months[newDate[2]][1]
+  const year = new Intl.DateTimeFormat('en-US',{year:'2-digit'}).format(new Date(date))
+  return `${month}/${day}/${year}`
+}
+
+function shortDateFullYear(date) {
   const newDate = splitDate(date)
   const day = newDate[1]
   const month = months[newDate[2]][1]
@@ -73,14 +81,29 @@ function longDate(date) {
   return `${month} ${day}, ${year}`
 }
 
-let date1 = formatDate('2024-10-13')
+function longDateWeekday(date){
+  const newDate = formatDate(date).split(' ')
+  const weekday = days[newDate[0]][0]
+  const day = formatOrdinals(parseInt(newDate[1]))
+  const month = months[newDate[2]][0]
+  const year = newDate[3]
+  return `${weekday}, ${month} ${day}, ${year}`
+}
+
+let date1 = formatDate('Tuesday, September 3, 2024')
 date1
 
 let dateStringExample = splitDate(date1)
 dateStringExample
 
-let short = shortDate('2024-10-13')
+let shortFull = shortDateFullYear('2024-10-13')
+shortFull
+
+let short = shortDate('2012-10-13')
 short
 
-let long = longDate('2024-02-3')
+let long = longDate('Friday, September 3, 2024')
 long
+
+let longWeekday = longDateWeekday('2023-10-06T00:00:00.000Z')
+longWeekday
