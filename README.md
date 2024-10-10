@@ -37,11 +37,11 @@ Friday, October 6th, 2023
 
 # Accepted Input
 
-For all the functions, the accepted inputs will be in the following formats:
+For all the functions, the accepted inputs will be in the following formats, following the American standard of `Year Month Day`:
 - `Timestamps`, these are the number of milliseconds passed since January 1, 1970. For example: `14182940000`
 - `ISO 8601`, the standard way of representing dates. They are strings like `YYYY-MM-DDTHH:mm:ss.sssZ`, for example `2023-10-06T14:30:00.000Z`
-- `Short date` format. Currently supporting only US date format (`MM/DD/YYYY`) and European date format (`DD/MM/YYYY`)
-- `Long date format`. These include the month name and the day as number, followed by the year. Currently supporting only the format `MONTH DD, YYYY`. For example `March 25th, 2022`
-- `Long date format with weekday`. These strings include the weekday in the way `WEEKDAY, MONTH DD, YYYY`. For example `Friday, September 2nd, 2023`
+- `Short date` format. Currently supporting only US date format `MM/DD/YYYY` or `MM-DD-YYYY`
+- `Long date format`. These include the month name and the day as number, followed by the year. Currently supporting only the format `Month DD, YYYY`. For example `March 25, 2022`
+- `Long date format with weekday`. These strings include the weekday in the way `WEEKDAY, MONTH DD, YYYY`. For example `Friday, September 2, 2023`
 
 # Functions available

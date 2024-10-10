@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/dnewbie25/easy-date-formatter/issues"
   },
-  "homepage": "https://github.com/dnewbie25/easy-date-formatter#readme"
+  "homepage": "https://github.com/dnewbie25/easy-date-formatter#readme",
+  "dependencies": {
+    "date-fns-tz": "^3.2.0"
+  }
 }
