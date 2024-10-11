@@ -41,7 +41,76 @@ For all the functions, the accepted inputs will be in the following formats, fol
 - `Timestamps`, these are the number of milliseconds passed since January 1, 1970. For example: `14182940000`
 - `ISO 8601`, the standard way of representing dates. They are strings like `YYYY-MM-DDTHH:mm:ss.sssZ`, for example `2023-10-06T14:30:00.000Z`
 - `Short date` format. Currently supporting only US date format `MM/DD/YYYY` or `MM-DD-YYYY`
-- `Long date format`. These include the month name and the day as number, followed by the year. Currently supporting only the format `Month DD, YYYY`. For example `March 25, 2022`
-- `Long date format with weekday`. These strings include the weekday in the way `WEEKDAY, MONTH DD, YYYY`. For example `Friday, September 2, 2023`
+- `Long date format`. These include the month name and the day as number, followed by the year. Currently supporting only the format `MonthName DD, YYYY`. For example `March 25, 2022`
+- `Long date format with weekday`. These strings include the weekday in the way `Weekday, MonthName DD, YYYY`. For example `Friday, September 2, 2023`
 
-# Functions available
+> Keep in mind that every input excepti Timestamps (which is an integer) should be a string, surrounded by quotes ''
+
+# How to use
+
+The package contains 5 main functions. Each one is detailed with an example of how to use.
+
+### formatDate()
+
+This function returns a date in the UTC format: `Weekday, DD MM YYYY HH:MM:SS Timezone`. My goal was to simplify the use of this format, hence the hour and timezone will not be used throughout the rest of the functions.
+
+```bash
+easy-date-formatter --format=formatDate '12/25/2024'
+
+## Output
+
+Wed, 25 Dec 2024 05:00:00 GMT
+
+```
+
+### shortDateFullYear()
+
+This function will return the provided date in the usual US format `MM/DD/YYYY`.
+
+```bash
+easy-date-formatter --format=shortDateFullYear 1789876761000 # This is a Timestamp
+
+## Output
+
+9/20/2026
+
+```
+
+### shortDate()
+
+This function works by returning the date the same as `shortDateFullYear()` but with the year as 2-digit number: `MM/DD/YY`.
+
+```bash
+easy-date-formatter --format=shortDate 'Wed, 25 Dec 2024 05:00:00 GMT' # We can use a long date
+
+# Output
+
+12/25/2024
+
+```
+
+### longDate()
+
+This function will return the date in a format more suited for letters and some informal documents in the format `MonthName DD, YYYY`. The days are shown using ordinal numbers (1st, 2nd, 3rd, 4th, and so on).
+
+```bash
+easy-date-formatter --format=longDate '12-25-24' # We can use a short date as well
+
+# Output
+
+December 25th, 2024
+
+```
+
+### longDateWeekday()
+
+This one will return the whole date including the day of the week. More suited for formal documents. It has the format `Weekday, Month DD, YYYY`. The days are shown using ordinal numbers (1st, 2nd, 3rd, 4th, and so on).
+
+```bash
+easy-date-formatter --format=longDateWeekday '2023-10-06T00:00:00.000Z' # ISO string
+
+# Output
+
+Friday, October 6th, 2023
+
+```

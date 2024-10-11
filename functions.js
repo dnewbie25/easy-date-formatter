@@ -52,11 +52,25 @@ function formatDate(date) {
   return new Date(date).toUTCString()
 }
 
+/**
+ * Takes a date and returns an array of four elements where the first element is
+ * the weekday, the second is the day of the month, the third is the month name,
+ * and the fourth is the year.
+ * @param  {String|Number|Date} date - The date to be formatted.
+ * @return {Array<String>}        - An array of four strings representing the date.
+ */
 function splitDate(date) {
   const arr = formatDate(date).split(' ').slice(0, 4)
   return arr
 }
 
+/**
+ * Takes a date and returns a string representation of the date in the format
+ * MM/DD/YY.
+ * @param  {String|Number|Date} date - The date to be formatted.
+ * @return {String}             - The string representation of the date in
+ *                                MM/DD/YY format.
+ */
 function shortDate(date){
   const newDate = splitDate(date)
   const day = newDate[1]
@@ -65,6 +79,13 @@ function shortDate(date){
   return `${month}/${day}/${year}`
 }
 
+/**
+ * Takes a date and returns a string representation of the date in the format
+ * MM/DD/YYYY.
+ * @param  {String|Number|Date} date - The date to be formatted.
+ * @return {String}             - The string representation of the date in
+ *                                MM/DD/YYYY format.
+ */
 function shortDateFullYear(date) {
   const newDate = splitDate(date)
   const day = newDate[1]
@@ -73,6 +94,13 @@ function shortDateFullYear(date) {
   return `${month}/${day}/${year}`
 }
 
+/**
+ * Takes a date and returns a string representation of the date in the format
+ * Month DD, YYYY, where DD is an ordinal number.
+ * @param  {String|Number|Date} date - The date to be formatted.
+ * @return {String}             - The string representation of the date in
+ *                                Month DD, YYYY format.
+ */
 function longDate(date) {
   const newDate = formatDate(date).split(' ')
   const day = formatOrdinals(parseInt(newDate[1]))
@@ -81,6 +109,13 @@ function longDate(date) {
   return `${month} ${day}, ${year}`
 }
 
+/**
+ * Takes a date and returns a string representation of the date in the format
+ * WEEKDAY, Month DD, YYYY, where DD is an ordinal number.
+ * @param  {String|Number|Date} date - The date to be formatted.
+ * @return {String}             - The string representation of the date in
+ *                                WEEKDAY, Month DD, YYYY format.
+ */
 function longDateWeekday(date){
   const newDate = formatDate(date).split(' ')
   const weekday = days[newDate[0]][0]
@@ -90,19 +125,19 @@ function longDateWeekday(date){
   return `${weekday}, ${month} ${day}, ${year}`
 }
 
-let date1 = formatDate('Tuesday, September 3, 2024')
+let date1 = formatDate('12/25/2024')
 date1
 
 let dateStringExample = splitDate(date1)
 dateStringExample
 
-let shortFull = shortDateFullYear('2024-10-13')
+let shortFull = shortDateFullYear('Wed, 25 Dec 2024 05:00:00 GMT')
 shortFull
 
 let short = shortDate('2012-10-13')
 short
 
-let long = longDate('Friday, September 3, 2024')
+let long = longDate('12 25 2024')
 long
 
 let longWeekday = longDateWeekday('2023-10-06T00:00:00.000Z')
