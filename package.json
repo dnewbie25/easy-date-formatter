@@ -1,14 +1,14 @@
 {
-  "name": "easy-date-formatter",
+  "name": "my-easy-date-formatter",
   "version": "1.0.0",
   "description": "An npm package aimed to help formatting dates into a more human-friendly format",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bin": {
+    "format-cli": "index.js"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dnewbie25/easy-date-formatter.git"
+    "type": "github",
+    "url": "https://github.com/dnewbie25/easy-date-formatter.git"
   },
   "keywords": [
     "date",
@@ -25,6 +25,6 @@
   },
   "homepage": "https://github.com/dnewbie25/easy-date-formatter#readme",
   "dependencies": {
-    "date-fns-tz": "^3.2.0"
+    "commander": "^12.1.0"
   }
 }

@@ -125,20 +125,10 @@ function longDateWeekday(date){
   return `${weekday}, ${month} ${day}, ${year}`
 }
 
-let date1 = formatDate('12/25/2024')
-date1
-
-let dateStringExample = splitDate(date1)
-dateStringExample
-
-let shortFull = shortDateFullYear('Wed, 25 Dec 2024 05:00:00 GMT')
-shortFull
-
-let short = shortDate('2012-10-13')
-short
-
-let long = longDate('12 25 2024')
-long
-
-let longWeekday = longDateWeekday('2023-10-06T00:00:00.000Z')
-longWeekday
+module.exports = {
+  formatDate,
+  shortDate,
+  shortDateFullYear,
+  longDate,
+  longDateWeekday
+}
