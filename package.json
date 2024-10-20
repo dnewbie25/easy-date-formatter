@@ -1,6 +1,6 @@
 {
   "name": "my-easy-date-formatter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An npm package aimed to help formatting dates into a more human-friendly format",
   "main": "index.js",
   "bin": {
