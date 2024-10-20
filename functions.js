@@ -44,11 +44,23 @@ const formatOrdinals = (n) => {
 };
 
 /**
+ * Returns true if the given string is composed entirely of numbers.
+ * @param  {String} str - The string to be tested.
+ * @return {Boolean}    - True if the string is all numbers, false otherwise.
+ */
+function areAllNumbers(str) {
+  return /^[0-9]+$/.test(str);
+}
+
+/**
  * Takes a date and returns the ISO 8601 representation of that date.
  * @param  {String|Number|Date} date - The date to be formatted.
  * @return {String}             - The ISO 8601 representation of the given date.
  */
 function formatDate(date) {
+  if(areAllNumbers){
+    return new Date(parseInt(date)).toUTCString()
+  }
   return new Date(date).toUTCString()
 }
 
