@@ -1,16 +1,16 @@
 const months = {
-  'Jan': ['January', 1],
-  'Feb': ['February', 2],
-  'Mar': ['March', 3],
-  'Apr': ['April', 4],
-  'May': ['May', 5],
-  'Jun': ['June', 6],
-  'Jul': ['July', 7],
-  'Aug': ['August', 8],
-  'Sep': ['September', 9],
-  'Oct': ['October', 10],
-  'Nov': ['November', 11],
-  'Dec': ['December', 12]
+  Jan: ['January', 1],
+  Feb: ['February', 2],
+  Mar: ['March', 3],
+  Apr: ['April', 4],
+  May: ['May', 5],
+  Jun: ['June', 6],
+  Jul: ['July', 7],
+  Aug: ['August', 8],
+  Sep: ['September', 9],
+  Oct: ['October', 10],
+  Nov: ['November', 11],
+  Dec: ['December', 12]
 }
 
 const days = {
@@ -26,10 +26,10 @@ const days = {
 // Handle ordinal numbers like 1st, 2nd, 3rd, 4th... and so on
 const newNum = new Intl.PluralRules('en', { type: 'ordinal' })
 const suffixes = new Map([
-  ["one", "st"],
-  ["two", "nd"],
-  ["few", "rd"],
-  ["other", "th"],
+  ['one', 'st'],
+  ['two', 'nd'],
+  ['few', 'rd'],
+  ['other', 'th']
 ])
 
 /**
@@ -38,18 +38,18 @@ const suffixes = new Map([
  * @return {String}   - The string representation of the number with an ordinal suffix.
  */
 const formatOrdinals = (n) => {
-  const rule = newNum.select(n);
-  const suffix = suffixes.get(rule);
-  return `${n}${suffix}`;
-};
+  const rule = newNum.select(n)
+  const suffix = suffixes.get(rule)
+  return `${n}${suffix}`
+}
 
 /**
  * Returns true if the given string is composed entirely of numbers.
  * @param  {String} str - The string to be tested.
  * @return {Boolean}    - True if the string is all numbers, false otherwise.
  */
-function areAllNumbers(str) {
-  return /^[0-9]+$/.test(str);
+function areAllNumbers (str) {
+  return /^[0-9]+$/.test(str)
 }
 
 /**
@@ -57,8 +57,8 @@ function areAllNumbers(str) {
  * @param  {String|Number|Date} date - The date to be formatted.
  * @return {String}             - The ISO 8601 representation of the given date.
  */
-function formatDate(date) {
-  if(areAllNumbers){
+function formatDate (date) {
+  if (areAllNumbers) {
     return new Date(parseInt(date)).toUTCString()
   }
   return new Date(date).toUTCString()
@@ -71,7 +71,7 @@ function formatDate(date) {
  * @param  {String|Number|Date} date - The date to be formatted.
  * @return {Array<String>}        - An array of four strings representing the date.
  */
-function splitDate(date) {
+function splitDate (date) {
   const arr = formatDate(date).split(' ').slice(0, 4)
   return arr
 }
@@ -83,11 +83,11 @@ function splitDate(date) {
  * @return {String}             - The string representation of the date in
  *                                MM/DD/YY format.
  */
-function shortDate(date){
+function shortDate (date) {
   const newDate = splitDate(date)
   const day = newDate[1]
   const month = months[newDate[2]][1]
-  const year = new Intl.DateTimeFormat('en-US',{year:'2-digit'}).format(new Date(date))
+  const year = new Intl.DateTimeFormat('en-US', { year: '2-digit' }).format(new Date(date))
   return `${month}/${day}/${year}`
 }
 
@@ -98,7 +98,7 @@ function shortDate(date){
  * @return {String}             - The string representation of the date in
  *                                MM/DD/YYYY format.
  */
-function shortDateFullYear(date) {
+function shortDateFullYear (date) {
   const newDate = splitDate(date)
   const day = newDate[1]
   const month = months[newDate[2]][1]
@@ -113,7 +113,7 @@ function shortDateFullYear(date) {
  * @return {String}             - The string representation of the date in
  *                                Month DD, YYYY format.
  */
-function longDate(date) {
+function longDate (date) {
   const newDate = formatDate(date).split(' ')
   const day = formatOrdinals(parseInt(newDate[1]))
   const month = months[newDate[2]][0]
@@ -128,7 +128,7 @@ function longDate(date) {
  * @return {String}             - The string representation of the date in
  *                                WEEKDAY, Month DD, YYYY format.
  */
-function longDateWeekday(date){
+function longDateWeekday (date) {
   const newDate = formatDate(date).split(' ')
   const weekday = days[newDate[0]][0]
   const day = formatOrdinals(parseInt(newDate[1]))

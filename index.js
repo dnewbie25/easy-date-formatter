@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const { formatDate, shortDate, shortDateFullYear, longDate, longDateWeekday } = require('./functions.js')
-const { Command } = require('commander');
-const program = new Command();
+const { Command } = require('commander')
+const program = new Command()
 
 program
   .name('easy-date-formatter')
@@ -17,18 +17,18 @@ program
   .option('-lw, --longDateWeekday', 'returns a date as Weekday, MonthName DD, YYYY')
   .action((date, options) => {
     if (options.formatDate) {
-      console.log(formatDate(date));
+      console.log(formatDate(date))
     } else if (options.shortDate) {
-      console.log(shortDate(date));
+      console.log(shortDate(date))
     } else if (options.shortDateFullYear) {
-      console.log(shortDateFullYear(date));
+      console.log(shortDateFullYear(date))
     } else if (options.longDate) {
-      console.log(longDate(date));
+      console.log(longDate(date))
     } else if (options.longDateWeekday) {
-      console.log(longDateWeekday(date));
+      console.log(longDateWeekday(date))
     } else {
-      console.log('No valid option provided');
+      console.log('No valid option provided')
     }
-  });
+  })
 
 program.parse(process.argv)
