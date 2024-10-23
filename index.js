@@ -32,3 +32,11 @@ program
   })
 
 program.parse(process.argv)
+
+module.exports = {
+  formatDate, 
+  shortDate, 
+  shortDateFullYear, 
+  longDate, 
+  longDateWeekday
+}

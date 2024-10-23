@@ -58,7 +58,7 @@ function areAllNumbers (str) {
  * @return {String}             - The ISO 8601 representation of the given date.
  */
 function formatDate (date) {
-  if (areAllNumbers) {
+  if (!areAllNumbers) {
     return new Date(parseInt(date)).toUTCString()
   }
   return new Date(date).toUTCString()

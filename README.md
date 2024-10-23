@@ -50,7 +50,7 @@ For all the functions, the accepted inputs will be in the following formats, fol
 
 # How to use
 
-The package contains 5 main functions. Each one is detailed with an example of how to use.Each option has an abbreviation as shown here:
+The package contains 5 main functions. Each one is detailed with an example of how to use. Each option has an abbreviation as shown here:
 
 ```bash
   -V, --version             output the version number
@@ -61,6 +61,22 @@ The package contains 5 main functions. Each one is detailed with an example of h
   -lw, --longDateWeekday    returns a date as Weekday, Month DD, YYYY
   -h, --help                display help for command
 ```
+
+You can use it in the Terminal or CMD, or you can import it to your project by using:
+
+```js
+import * as date from 'my-easy-date-formatter'
+
+const newDate = date.longDateWeekday('10-24-2018') // Wednesday, October 24th, 2018
+
+// or you can simply import the function you need like
+
+import { longDateWeekday } from 'my-easy-date-formatter'
+
+const newDate = longDateWeekday('10-24-2018') // Wednesday, October 24th, 2018
+```
+
+To use it directly from the Terminal or CMD you can call the `npx my-easy-date-formatter` as follows:
 
 ### formatDate()
 
